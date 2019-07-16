@@ -1,0 +1,25 @@
+version: '3'
+services:
+  php:
+    build: ./php
+    volumes:
+      - ./src:/var/www
+    networks:
+      - laravel-network
+
+  apache:
+    build: ./apache
+    ports:
+      - "80:80"
+
+  db:
+    build: ./mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: laravel
+      MYSQL_DATABASE: laravel
+    networks:
+      - laravel-network
+
+networks:
+  laravel-network:
+
