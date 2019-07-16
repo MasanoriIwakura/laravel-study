@@ -49,5 +49,6 @@ php artisan serve
 
 ## XAMP環境の構築
 
-Apache + MariaDB(MySQL) + PHPの環境を構築する。  
-各種インストールが面倒なのでDockerを使用する。
+Nginx + MariaDB + PHPの環境を構築する。  
+各種インストールが面倒なのでDockerを使用する。  
+また、Nginxの経験が無いので勉強用のNginxを選定

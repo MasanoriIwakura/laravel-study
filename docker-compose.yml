@@ -3,14 +3,24 @@ services:
   php:
     build: ./php
     volumes:
-      - ./src:/var/www
+      - ./src:/var/www/laravel
+    depends_on:
+      - db
     networks:
-      - laravel-network
+      - db-network
+      - web-network
 
-  apache:
-    build: ./apache
+  nginx:
+    build: ./nginx
     ports:
       - "80:80"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d/
+      - ./src/public:/var/www/laravel/public
+    depends_on:
+      - php
+    networks:
+      - web-network
 
   db:
     build: ./mariadb
@@ -18,8 +28,9 @@ services:
       MYSQL_ROOT_PASSWORD: laravel
       MYSQL_DATABASE: laravel
     networks:
-      - laravel-network
+      - db-network
 
 networks:
-  laravel-network:
+  web-network:
+  db-network:
 

@@ -1,3 +1,3 @@
-FROM httpd:2.4.39-alpine
+FROM nginx:1.17.1-alpine
 
 LABEL  maintainer "MasanoriIwakura"
