@@ -2,11 +2,11 @@
 {
 	"name": "Laravel Development",
 	"dockerComposeFile": [
-		"../docker-compose.yml"
+		"../docker/docker-compose.yml"
 	],
 	"service": "php",
 	"appPort": 8000,
-	"workspaceFolder": "/var/www/laravel",
+	"workspaceFolder": "/var/www/",
 	"extensions": [
 		"felixfbecker.php-debug",
 		"felixfbecker.php-intellisense"

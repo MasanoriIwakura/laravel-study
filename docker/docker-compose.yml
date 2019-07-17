@@ -3,7 +3,7 @@ services:
   php:
     build: ./php
     volumes:
-      - ./src:/var/www/laravel
+      - ../:/var/www/
     depends_on:
       - db
     networks:
@@ -16,7 +16,7 @@ services:
       - "80:80"
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d/
-      - ./src/public:/var/www/laravel/public
+      - ../src/public:/var/www/src/public
     depends_on:
       - php
     networks:
