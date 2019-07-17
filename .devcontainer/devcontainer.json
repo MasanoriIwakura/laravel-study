@@ -9,6 +9,8 @@
 	"workspaceFolder": "/var/www/",
 	"extensions": [
 		"felixfbecker.php-debug",
-		"felixfbecker.php-intellisense"
+		"felixfbecker.php-intellisense",
+		"onecentlin.laravel5-snippets",
+		"onecentlin.laravel-blade"
 	]
 }
