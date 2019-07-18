@@ -39,11 +39,11 @@ $ laravel --version
 
 ```bash
 # 作成したいフォルダに移動してから実行
-laravel new <プロジェクト名>
+$ laravel new <プロジェクト名>
 
 # 実行
-cd <プロジェクト名>
-php artisan serve
+$ cd <プロジェクト名>
+$ php artisan serve
 # http://local host:8000/にアクセス
 ```
 
@@ -52,3 +52,49 @@ php artisan serve
 Nginx + MariaDB + PHPの環境を構築する。  
 各種インストールが面倒なのでDockerを使用する。  
 また、Nginxの経験が無いので勉強用のNginxを選定
+
+## Controllerの作成
+
+Controllerは以下のコマンドで作成する。
+
+```bash
+$ php artisan make:controller <Controller名>
+```
+
+`app/Http`直下にControllerが作成される。  
+Controllerの実装後、ルーティングに追加が必要。
+
+Controllerの例
+
+```php
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class HelloController extends Controller
+{
+    public function index($id='noname', $pass='unknown') {
+        return <<<EOF
+<html>
+<head>
+<title>HelloController/index</title>
+</head>
+<body>
+    <h1>Index</h1>
+    <p>HelloController Index page</p>
+    <ul>
+        <li>ID: {$id}</li>
+        <li>PASS: {$pass}</li>
+    </ul>
+</body>
+</html>
+EOF;
+    }
+}
+```
+
+`routes/web.php` にルーティングの追加
+
+```php
+Route::get('hello/{id?}/{pass?}', 'HelloController@index');
+```
