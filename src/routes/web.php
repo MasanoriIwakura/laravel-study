@@ -15,7 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('hello/{id?}/{pass?}', 'HelloController@index');
+Route::get('hello', 'HelloController@index');
+Route::get('hello/other' , 'HelloController@other');
+
+Route::get('single', 'SingleController');
 
 $html = <<<EOF
 <html>
@@ -35,9 +38,9 @@ Route::get('user/{id}', function ($id) {
     $users = array('1'=>'Taro', '2'=>'Jiro', '3'=>'Saburo');
 
     if (array_key_exists($id, $users)) {
-        $message = "id = ${id}, user = ${users[$id]}";
+        $message = "id = {$id}, user = ${users[$id]}";
     } else {
-        $message = "対象のユーザーは存在しません。[id:${id}]";
+        $message = "対象のユーザーは存在しません。[id:{$id}]";
     }
 
 $html = <<<EOF

@@ -11,6 +11,7 @@
 		"felixfbecker.php-debug",
 		"felixfbecker.php-intellisense",
 		"onecentlin.laravel5-snippets",
-		"onecentlin.laravel-blade"
+		"onecentlin.laravel-blade",
+		"ryannaddy.laravel-artisan"
 	]
 }

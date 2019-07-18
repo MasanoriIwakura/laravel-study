@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class SingleController extends Controller
+{
+    public function __invoke() {
+        return <<<EOF
+<html>
+<head>
+<title>Single</title>
+</head>
+<body>
+<h1>Single Action Controller!!!</h1>
+</body>
+</html>
+EOF;
+    }
+}
