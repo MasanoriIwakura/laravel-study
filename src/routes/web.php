@@ -31,3 +31,25 @@ EOF;
 Route::get('hoge', function () use ($html) {
     return $html;
 });
+
+Route::get('user/{id}', function ($id) {
+    $message = '';
+    $users = array('1'=>'Taro', '2'=>'Jiro', '3'=>'Saburo');
+
+    if (array_key_exists($id, $users)) {
+        $message = "id = ${id}, user = ${users[$id]}";
+    } else {
+        $message = "対象のユーザーは存在しません。[id:${id}]";
+    }
+
+$html = <<<EOF
+<html>
+<body>
+    <h1>パラメータサンプル</h1>
+    <p>$message</p>
+</body>
+</html>
+EOF;
+
+    return $html;
+});
